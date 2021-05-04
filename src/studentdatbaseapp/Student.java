@@ -57,19 +57,33 @@ public class Student {
 				break;
 			}
 		} while (true);
-		System.out.println("ENROLLED IN: " + courses);
-		System.out.println("TUITION BALANCE: " + tuitionBalance);
-	}
-	
-	
-	
-
-	
+	}	
 	
 	// 残高を見る
+	public void viewBalance() 
+	{
+		System.out.println("Your balance is : $" + tuitionBalance);
+	}
 	
 	// 授業料を払う
+	public void payTuition() 
+	{
+		viewBalance();
+		System.out.println("Enter your payment: $");
+		Scanner in = new Scanner(System.in);
+		int payment = in.nextInt();
+		tuitionBalance -= payment;
+		System.out.println("Thank you for your payment of $" + payment);
+		viewBalance();
+	}
 	
 	// ステータス確認
-	
+	public String toString() 
+	{
+		return "Name: " + firstName + " " + lastName + 
+				"\nGrade Level: " + gradeYear + 
+				"\nStudent ID: " + studentID + 
+				"\nCoutrces Enrolled: " + courses + 
+				"\nBalance: $" + tuitionBalance;
+	}
 }
